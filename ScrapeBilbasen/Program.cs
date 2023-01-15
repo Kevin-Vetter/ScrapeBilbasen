@@ -1,7 +1,9 @@
+using ScrapeBilbasen.Service;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages().Services.AddSingleton<IRepo, Repository>();//.AddMvc().Services.AddSession(options => options.IdleTimeout = TimeSpan.FromMinutes(30));
 
 var app = builder.Build();
 
